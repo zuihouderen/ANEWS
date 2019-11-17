@@ -57,31 +57,31 @@ public class RxRetrofitUnit {
         return retrofit.create(service);
     }
 
-    //提供接口方法
-    @SuppressLint("CheckResult")public void getMessage(final CallBack call)
-    {
-        Observable< NewsGson > dtoObservable=RxRetrofitUnit.getInstance().create(ApiService.class).getNewsData(AppConfig.Key,"10");
-        //调度线程
-
-        final Disposable subscribe = dtoObservable.subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<NewsGson>() {
-                    @Override
-                    public void accept(NewsGson listMessage) throws Exception {
-                        if (listMessage == null) {
-                            call.onError();
-                            Log.d("66", "成功联网 ,listMessage为空" );
-                        } else {
-                            call.onSuccess(listMessage);
-                            Log.d("55", "成功联网 调用API" );
-                        }
-                    }
-                });
-    }
-    //这是一个回调接口
-    public interface  CallBack{
-        void onSuccess(NewsGson newsGson);
-
-        void onError();
-    }
+//    //提供接口方法
+//    @SuppressLint("CheckResult")public void getMessage(final CallBack call)
+//    {
+//        Observable< NewsGson > dtoObservable=RxRetrofitUnit.getInstance().create(ApiService.class).getNewsData(AppConfig.Key,"10");
+//        //调度线程
+//
+//        final Disposable subscribe = dtoObservable.subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(new Consumer<NewsGson>() {
+//                    @Override
+//                    public void accept(NewsGson listMessage) throws Exception {
+//                        if (listMessage == null) {
+//                            call.onError();
+//                            Log.d("66", "成功联网 ,listMessage为空" );
+//                        } else {
+//                            call.onSuccess(listMessage);
+//                            Log.d("55", "成功联网 调用API" );
+//                        }
+//                    }
+//                });
+//    }
+//    //这是一个回调接口
+//    public interface  CallBack{
+//        void onSuccess(NewsGson newsGson);
+//
+//        void onError();
+//    }
 }

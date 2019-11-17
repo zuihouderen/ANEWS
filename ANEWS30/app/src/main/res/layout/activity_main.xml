@@ -1,12 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/activity_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        tools:context=".MainActivity"
+        android:orientation="vertical">
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/mScroll"
+            android:nestedScrollingEnabled="true">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/mlayout">
+            <TextView
+                android:id="@+id/science_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="科学探索"
+                android:textSize="@dimen/title_size"
+                android:layout_marginLeft="@dimen/title_margin"
+                android:layout_marginRight="@dimen/title_margin">
+            </TextView>
+            <TextView
+                android:id="@+id/internet_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="互联网"
+                android:textSize="@dimen/title_size"
+                android:layout_marginLeft="@dimen/title_margin"
+                android:layout_marginRight="@dimen/title_margin"/>
+                <TextView
+                    android:id="@+id/anime_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="动漫"
+                    android:textSize="@dimen/title_size"
+                    android:layout_marginLeft="@dimen/title_margin"
+                    android:layout_marginRight="@dimen/title_margin">
+                </TextView>
+                <TextView
+                    android:id="@+id/caijing_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="财经"
+                    android:textSize="@dimen/title_size"
+                    android:layout_marginLeft="@dimen/title_margin"
+                    android:layout_marginRight="@dimen/title_margin"/>
+                <TextView
+                    android:id="@+id/game_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="游戏"
+                    android:textSize="@dimen/title_size"
+                    android:layout_marginLeft="@dimen/title_margin"
+                    android:layout_marginRight="@dimen/title_margin"/>
+                <TextView
+                    android:id="@+id/ai_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="人工智能"
+                    android:textSize="@dimen/title_size"
+                    android:layout_marginLeft="@dimen/title_margin"
+                    android:layout_marginRight="@dimen/title_margin"/>
+                <TextView
+                    android:id="@+id/travel_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="旅游"
+                    android:textSize="@dimen/title_size"
+                    android:layout_marginLeft="@dimen/title_margin"
+                    android:layout_marginRight="@dimen/title_margin"/>
+            </LinearLayout>
+        </HorizontalScrollView>
 
         <com.jude.easyrecyclerview.EasyRecyclerView  android:id="@+id/recyclerView"
             android:layout_width="match_parent"
@@ -19,7 +91,7 @@
             app:recyclerPaddingTop="8dp"
             app:scrollbarStyle="insideOverlay"
             app:scrollbars="none" />
-    </RelativeLayout>
+    </LinearLayout>
 
 
 
