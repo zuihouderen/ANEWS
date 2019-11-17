@@ -11,6 +11,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,18 +43,19 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
 
     public List< NewsGson.NewslistBean > newslistBeans=new ArrayList<>();
+    private String TypeUrl="7";
     private EasyRecyclerView recyclerView;
     private NewsAdapter newsAdapter=new NewsAdapter(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setOnClickEvent();
         //setContentView(R.layout.news_detail);
-
         getData();
         //setView();
 
@@ -62,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
     @SuppressLint("CheckResult")
     private void getData() {
         ApiService apiManager = RxRetrofitUnit.getInstance().create(ApiService.class);//这里采用的是Java的动态代理模式
-        apiManager.getNewsData(AppConfig.Key,"10")
+        apiManager.getNewsData(AppConfig.Key,"10",TypeUrl)
                 .subscribeOn(Schedulers.io())
                 .map(new Function< NewsGson, List<NewsGson.NewslistBean> >() {
                     @Override
@@ -127,13 +129,10 @@ public class MainActivity extends AppCompatActivity {
 //            @Override
 //            public void onMoreShow() {
 //                //addData();
-//
 //                getData();
 //            }
-//
 //            @Override
 //            public void onMoreClick() {
-//
 //            }
 //        });
 
@@ -179,6 +178,56 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+    }
+
+    private void setOnClickEvent(){
+        findViewById(R.id.ai_title).setOnClickListener(this);
+        findViewById(R.id.anime_title).setOnClickListener(this);
+        findViewById(R.id.caijing_title).setOnClickListener(this);
+        findViewById(R.id.game_title).setOnClickListener(this);
+        findViewById(R.id.internet_title).setOnClickListener(this);
+        findViewById(R.id.science_title).setOnClickListener(this);
+        findViewById(R.id.travel_title).setOnClickListener(this);
+    }
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.ai_title:
+                TypeUrl = "29";
+                newsAdapter.clear();
+                getData();
+                break;
+            case R.id.anime_title:
+                TypeUrl = "33";
+                newsAdapter.clear();
+                getData();
+                break;
+            case R.id.caijing_title:
+                TypeUrl = "32";
+                newsAdapter.clear();
+                getData();
+                break;
+            case R.id.game_title:
+                TypeUrl = "31";
+                newsAdapter.clear();
+                getData();
+                break;
+            case R.id.internet_title:
+                TypeUrl = "34";
+                newsAdapter.clear();
+                getData();
+                break;
+            case R.id.science_title:
+                TypeUrl = "36";
+                newsAdapter.clear();
+                getData();
+                break;
+            case R.id.travel_title:
+                TypeUrl = "18";
+                newsAdapter.clear();
+                getData();
+                break;
+        }
     }
 //    void addData(){
 //        recyclerView.postDelayed(new Runnable() {
