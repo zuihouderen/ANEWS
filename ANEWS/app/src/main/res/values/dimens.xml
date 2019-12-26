@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="login_textsize">20dp</dimen>
+    <dimen name="login_edit_lenth">200dp</dimen>
+    <dimen name="margin_right">5dp</dimen>
+    <dimen name="chanel_margin_horizaontal">17dp</dimen>
+    <dimen name="chanel_margin_vertical">10dp</dimen>
+    <dimen name="chanel_text_size">20dp</dimen>
+    <dimen name="news_item_height">100dp</dimen>
+    <dimen name="news_title_size">20dp</dimen>
+    <dimen name="news_time_size">15dp</dimen>
+    <dimen name="news_item_width">100dp</dimen>
+</resources>

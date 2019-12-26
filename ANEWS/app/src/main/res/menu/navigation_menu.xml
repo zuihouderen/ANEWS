@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_collect"
+        android:title="收藏"
+        android:icon="@drawable/shoucang"
+        />
+    <item
+        android:id="@+id/nav_history"
+        android:title="历史"
+        android:icon="@drawable/lishi"
+        />
+    <item
+        android:id="@+id/nav_change_password"
+        android:title="修改密码"
+        android:icon="@drawable/suo_1"
+        />
+    <item
+        android:id="@+id/nav_logout"
+        android:title="注销"
+        android:icon="@drawable/zhuxiao"
+        />
+</menu>

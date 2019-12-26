@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorButtonNormal"
+        android:minHeight="?attr/actionBarSize"
+        app:title="@string/app_name"/>
+
+    <HorizontalScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/recommend"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="@dimen/chanel_margin_horizaontal"
+                android:layout_marginVertical="@dimen/chanel_margin_vertical"
+                android:text="推荐"
+                android:textSize="@dimen/chanel_text_size" />
+
+            <TextView
+                android:id="@+id/finance"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="@dimen/chanel_margin_horizaontal"
+                android:layout_marginVertical="@dimen/chanel_margin_vertical"
+                android:text="财经"
+                android:textSize="@dimen/chanel_text_size" />
+
+            <TextView
+                android:id="@+id/sport"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="@dimen/chanel_margin_horizaontal"
+                android:layout_marginVertical="@dimen/chanel_margin_vertical"
+                android:text="体育"
+                android:textSize="@dimen/chanel_text_size" />
+
+            <TextView
+                android:id="@+id/entertainment"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="@dimen/chanel_margin_horizaontal"
+                android:layout_marginVertical="@dimen/chanel_margin_vertical"
+                android:text="娱乐"
+                android:textSize="@dimen/chanel_text_size" />
+
+            <TextView
+                android:id="@+id/military"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="@dimen/chanel_margin_horizaontal"
+                android:layout_marginVertical="@dimen/chanel_margin_vertical"
+                android:text="军事"
+                android:textSize="@dimen/chanel_text_size" />
+
+            <TextView
+                android:id="@+id/education"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="@dimen/chanel_margin_horizaontal"
+                android:layout_marginVertical="@dimen/chanel_margin_vertical"
+                android:text="教育"
+                android:textSize="@dimen/chanel_text_size" />
+
+            <TextView
+                android:id="@+id/technic"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="@dimen/chanel_margin_horizaontal"
+                android:layout_marginVertical="@dimen/chanel_margin_vertical"
+                android:text="科技"
+                android:textSize="@dimen/chanel_text_size" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <LinearLayout
+        android:id="@+id/fgContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" />
+</LinearLayout>
