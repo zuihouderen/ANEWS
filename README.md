@@ -1,5 +1,4 @@
 # ANEWS
 Mobile Applycation Development Project
 # Contributor
-Lu Pengyi
-Lv Haijun
+Lu Pengyi && Lv Haijun
