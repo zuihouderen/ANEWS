@@ -34,7 +34,7 @@ public class LoginM implements ILoginM {
                 } else {
                     resultCode = 0;
                     mILoginP.setLoginResultCode(resultCode);
-                    Log.d("loginm", "done: ");
+                    Log.d("loginm", "done: " + e.getErrorCode() + ' ' + e.getMessage());
                 }
             }
         });

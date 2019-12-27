@@ -97,7 +97,10 @@ public class NewsFragment extends Fragment implements IMainV, IHistoryV,Recommen
             public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
                 if(START <= 400) {
                     Toast.makeText(mContext, "上拉加载", Toast.LENGTH_SHORT).show();
-                    mIMainP.doLoadMore(newsType, START);
+                    if(newsType.equals("推荐"))
+                        mIMainP.doLoadMore("头条",START);
+                    else
+                        mIMainP.doLoadMore(newsType, START);
                 }
                 else{
                     Toast.makeText(mContext, "已经到底了", Toast.LENGTH_SHORT).show();
@@ -124,14 +127,14 @@ public class NewsFragment extends Fragment implements IMainV, IHistoryV,Recommen
                 bundle.putStringArrayList("data",data);
                 intent.putExtras(bundle);
                 startActivity(intent);
-                Toast.makeText(mContext,"on item click "+position+' '+mNewsItemList.get(position).getmTitle(),Toast.LENGTH_SHORT).show();
+                //Toast.makeText(mContext,"on item click "+position+' '+mNewsItemList.get(position).getmTitle(),Toast.LENGTH_SHORT).show();
             }
         });
         //设置每个新闻项的长点击事件：收藏、删除
         mFragmentRVAdaptor.setOnItemLongClickListener(new FragmentRVAdaptor.OnItemLongClickListener() {
             @Override
             public void onItemLongClick(final int position) {
-                Toast.makeText(mContext,"on item long click "+position+' '+mNewsItemList.get(position).getmTime(),Toast.LENGTH_SHORT).show();
+                //Toast.makeText(mContext,"on item long click "+position+' '+mNewsItemList.get(position).getmTime(),Toast.LENGTH_SHORT).show();
                 final String[] items = {"收藏", "删除"};
                 AlertDialog.Builder builder;
                 builder = new AlertDialog.Builder(mContext).setIcon(R.mipmap.ic_launcher)
@@ -226,16 +229,17 @@ public class NewsFragment extends Fragment implements IMainV, IHistoryV,Recommen
 
     @Override
     public void deal(List<String> list) {
-        for(int i=0;i<list.size();i++){
-            String key=list.get(i);
-            if(mChannelMap.containsKey(key)){
-                int val=mChannelMap.get(key).intValue();
-                val++;
-                mChannelMap.put(key,val);
-                Log.d("值",""+val);
-            }
-            else {
-                mChannelMap.put(key,1);
+        if(list!=null) {
+            for (int i = 0; i < list.size(); i++) {
+                String key = list.get(i);
+                if (mChannelMap.containsKey(key)) {
+                    int val = mChannelMap.get(key).intValue();
+                    val++;
+                    mChannelMap.put(key, val);
+                    Log.d("值", "" + val);
+                } else {
+                    mChannelMap.put(key, 1);
+                }
             }
         }
         mRecommendP.doQueryHistory();
@@ -243,19 +247,24 @@ public class NewsFragment extends Fragment implements IMainV, IHistoryV,Recommen
 
     @Override
     public void dealHChannel(List<String> list) {
-        for(int i=0;i<list.size();i++){
-            String key=list.get(i);
-            if(mChannelMap.containsKey(key)){
-                int val=mChannelMap.get(key).intValue();
-                val++;
-                mChannelMap.put(key,val);
-                Log.d("值",""+val);
-            }
-            else {
-                mChannelMap.put(key,1);
+        if(list!=null) {
+            for (int i = 0; i < list.size(); i++) {
+                String key = list.get(i);
+                if (mChannelMap.containsKey(key)) {
+                    int val = mChannelMap.get(key).intValue();
+                    val++;
+                    mChannelMap.put(key, val);
+                    Log.d("值", "" + val);
+                } else {
+                    mChannelMap.put(key, 1);
+                }
             }
         }
-        mIMainP.doRecommend(mChannelMap);
-        mChannelMap.clear();
+        if(mChannelMap.size()!=0) {
+            mIMainP.doRecommend(mChannelMap);
+            mChannelMap.clear();
+        }
+        else
+            mIMainP.doRefresh("头条");
     }
 }
